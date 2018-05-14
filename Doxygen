@@ -1,0 +1,4 @@
+PROJECT_NAME = Breadth First Search Algorithm
+OUTPUT_DIRECTORY = docs
+INPUT = include
+RECURSIVE = yes
