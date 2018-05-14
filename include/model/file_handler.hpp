@@ -15,7 +15,7 @@ class FileHandler {
     private:
         unsigned long currentLine;
         std::fstream file;
-        std::vector<char*> buffer;
+        std::vector<char*> *buffer;
         void readFile(const char *filename);
 
 };
