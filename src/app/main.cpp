@@ -22,16 +22,18 @@ int main(int argc, char **argv) {
 
     FileHandler *fileHandler = new FileHandler(argv[1]);
     std::vector<int*> *filepayload = new std::vector<int*>();
- 
+    
+    unsigned int counter = 0;
     while (fileHandler->hasNextLine()) {
         char *line = fileHandler->getNextLine();
         int *pair =  Parser::getTokens(line);
         filepayload->push_back(pair);
+        ++counter;
     }
 
     int** adjacencymatrix = new int*[filepayload->size()];
     paddingAdjacencyMatrix(adjacencymatrix, filepayload);
-    Graph *graph = new Graph(adjacencymatrix);
+    Graph *graph = new Graph(adjacencymatrix,counter,2);
     
 
     return 0;

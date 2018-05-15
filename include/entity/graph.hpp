@@ -5,7 +5,7 @@ class Graph {
 
     public:
         Graph();
-        Graph(int **adjacencyMatrix);
+        Graph(int **adjacencyMatrix, int rowamount, int columnamount);
         ~Graph();
         int** getAdjacencyMatrix();
         void setAdjacencyMatrix(int **adjacencymatrix);

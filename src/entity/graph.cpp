@@ -8,10 +8,10 @@ Graph::Graph() {
     this->rowAmount = 0;
 }
 
-Graph::Graph(int **adjacencymatrix) {
-    this->adjacencyMatrix = adjacencyMatrix;
-    this->rowAmount = sizeof this->adjacencyMatrix / sizeof this->adjacencyMatrix[0];
-    this->columnAmount = sizeof this->adjacencyMatrix[0] / sizeof(int);
+Graph::Graph(int **adjacencymatrix, int rowamount, int columnamount) {
+    this->adjacencyMatrix = adjacencymatrix;
+    this->rowAmount = rowamount;
+    this->columnAmount = columnamount;
 }
 
 Graph::~Graph() {
