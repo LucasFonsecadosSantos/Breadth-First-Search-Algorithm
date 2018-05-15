@@ -17,18 +17,18 @@ void paddingAdjacencyMatrix(int **adjacencymatrix, std::vector<int*> *values) {
 int main(int argc, char **argv) {
 
     if (argc < 2) {
-        exit(1);
+        return 1;
     }
 
     FileHandler *fileHandler = new FileHandler(argv[1]);
     std::vector<int*> *filepayload = new std::vector<int*>();
-    std::cout << "condition " << fileHandler->hasNextLine();
+ 
     while (fileHandler->hasNextLine()) {
         int *x =  Parser::getTokens(fileHandler->getNextLine());
-        std::cout << x[0] << "ijadijoiojadsioa";
-        filepayload->push_back(Parser::getTokens(fileHandler->getNextLine()));
+	std::cout << "line: " << fileHandler->getNextLine() << std::endl;
+        //filepayload->push_back(Parser::getTokens(fileHandler->getNextLine()));
     }
-
+	std::cout << "chegou aqui";
     int** adjacencymatrix = new int*[filepayload->size()];
     paddingAdjacencyMatrix(adjacencymatrix, filepayload);
     Graph *graph = new Graph(adjacencymatrix);

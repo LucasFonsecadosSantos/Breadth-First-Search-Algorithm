@@ -1,6 +1,7 @@
 #include "../../include/util/parser.hpp"
 #include <string>
 #include <iostream>
+#include <stdlib.h>
 
 int* Parser::getTokens(std::string line) {
     std::string token;
@@ -10,11 +11,10 @@ int* Parser::getTokens(std::string line) {
         if (line[i] != ' ')
             token += line[i];
         else {
-            information[0] = std::stoi(token);
+            information[0] = atoi(token.c_str());
             token = "";
         }
     }
-    information[1] = std::stoi(token);
-    std::cout << information[0] << "asopkkopas";
+    information[1] = atoi(token.c_str());
     return information;
 }

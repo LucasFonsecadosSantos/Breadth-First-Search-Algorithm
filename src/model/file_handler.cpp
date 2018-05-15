@@ -19,22 +19,19 @@ bool FileHandler::hasNextLine() {
 }
 
 char* FileHandler::getNextLine() {
-    if (hasNextLine())
-        return this->buffer->at(this->currentLine++);
+    if (hasNextLine()) {
+	char *line = this->buffer->at(this->currentLine);
+	this->currentLine++;
+	return line;
+    }
     return NULL;
 }
 
 void FileHandler::readFile(const char *filename) {
     this->file.open(filename);
-    std::cout << filename;
     std::string line;
-    if (this->file.is_open()) {
-        std::cout << "niceindinao";
-    } else {
-        std::cout << "karai";
-    }
     while (std::getline(this->file, line)) {
-        if (line.size() == 0)
+	if (line.size() == 0)
             continue;
         char *lineBuffer = new char[line.size()];
         line.copy(lineBuffer, line.size(), 0);
