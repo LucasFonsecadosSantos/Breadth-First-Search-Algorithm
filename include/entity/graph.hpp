@@ -15,10 +15,14 @@ class Graph {
 
     private:
         int **adjacencyMatrix;
+        int **description;
         int rowAmount;
         int columnAmount;
+        int vertexAmount;
         inline void setColumnAmount(int amount);
         inline void setRowAmount(int amount);
+        void makeAdjacencyMatrix();
+        int getTheHighestValue(int **description, int rowamount, int columnamount);
 
 };
 
