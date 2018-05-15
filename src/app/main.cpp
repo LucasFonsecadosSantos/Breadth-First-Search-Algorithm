@@ -24,15 +24,14 @@ int main(int argc, char **argv) {
     std::vector<int*> *filepayload = new std::vector<int*>();
  
     while (fileHandler->hasNextLine()) {
-        int *x =  Parser::getTokens(fileHandler->getNextLine());
-	std::cout << "line: " << fileHandler->getNextLine() << std::endl;
-        //filepayload->push_back(Parser::getTokens(fileHandler->getNextLine()));
+        char *line = fileHandler->getNextLine();
+        int *pair =  Parser::getTokens(line);
+        filepayload->push_back(pair);
     }
-	std::cout << "chegou aqui";
+
     int** adjacencymatrix = new int*[filepayload->size()];
     paddingAdjacencyMatrix(adjacencymatrix, filepayload);
     Graph *graph = new Graph(adjacencymatrix);
-    
     
 
     return 0;
