@@ -34,7 +34,7 @@ int main(int argc, char **argv) {
     int** adjacencymatrix = new int*[filepayload->size()];
     paddingAdjacencyMatrix(adjacencymatrix, filepayload);
     Graph *graph = new Graph(adjacencymatrix,counter,2);
-    
+    graph->print();
 
     return 0;
 }

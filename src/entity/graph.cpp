@@ -49,10 +49,10 @@ void Graph::print() {
         std::cout << std::endl;
     }
 
-    std::cout << std::endl << std::endl << std::endl;
+    std::cout << std::endl << "ADJACENCY MATRIX:" << std::endl;
 
-    for (unsigned long i = 0 ; i < this->vertexAmount ; i++) {
-        for (unsigned long j = 0 ; j < this->vertexAmount ; j++) {
+    for (int i = 0 ; i < 10 ; i++) {
+        for (int j = 0 ; j < 10 ; j++) {
             std::cout << this->adjacencyMatrix[i][j] << " ";
         }
         std::cout << std::endl;
@@ -66,9 +66,13 @@ void Graph::makeAdjacencyMatrix() {
 
     for (unsigned long i = 0 ; i < highestValue ; i++)
         this->adjacencyMatrix[i] = new int[highestValue];
-    //ERRO TA AQUI
+
+    for (unsigned long i = 0 ; i < highestValue ; i++)
+        for (unsigned long j = 0 ; j < highestValue ; j++)
+            this->adjacencyMatrix[i][j] = 0;
+    
     for (unsigned long i = 0 ; i < this->rowAmount ; i++ )
-        this->adjacencyMatrix[description[i][0]][description[i][1]] = 1;
+        this->adjacencyMatrix[description[i][0]-1][description[i][1]-1] = 1;
 
 }
 
